@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
+
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -12,6 +13,92 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 form {
     margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+label {
+    display:inline-block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea{
+    width: 100%;
+    max-width: 420px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+textarea {
+    min-height: 60px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11pt;
+}
+
+button[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+#taskTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#taskTable th {
+    text-align: left;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-bottom: 2px solid #ddd;
+}
+
+#taskTable td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#taskTable button {
+    background-color: lightgrey;
+    color: black;
+}
+
+#taskTable button:hover:not(:disabled) {
+    background-color: darkgray;
+}
+
+#taskTable button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+tr.completed {
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: line-through;
+    background-color: #f5f5f5;
 }

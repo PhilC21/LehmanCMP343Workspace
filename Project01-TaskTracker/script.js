@@ -7,7 +7,9 @@
 let tasks = [];
 
 const taskForm = document.getElementById("taskForm")
-const taskTable = document.getElementById("taskTable")
+// const taskTable = document.getElementById("taskTable")
+const taskTableBody = document.getElementById("taskTableBody");
+
 
 // console.log("taskForm:", taskForm);
 // console.log("taskTable:", taskTable);
@@ -24,6 +26,7 @@ function handleSubmission(event) {
     // TODO: Validate input fields
     if (taskName == "" || taskDeadline == "") {
         alert('Task name and deadline are required!')
+        return // Exit the function here if requirements are not met
     }
 
     // TODO: Update the tasks array
@@ -35,20 +38,37 @@ function handleSubmission(event) {
 // Function to render tasks in the table
 function render() {
     // TODO: Use array methods to create a new table row of data for each item in the arr
-    taskTable.innerHTML = tasks.map(task => `
-        <tr>
+    taskTableBody.innerHTML = tasks.map((task, index) => `
+        <tr${task.completed ? ' class="completed"' : ''}>
             <td>${task.name}</td>
             <td>${task.description}</td>
             <td>${task.deadline}</td>
-            <td><button onclick="markTaskComplete(this)">Complete</button></td>
-            <td><button onclick="removeTask(this)">Remove</button></td>
+            <td><button onclick="markTaskComplete(${index})" ${task.completed ? 'disabled' : ''}>Complete</button></td>
+            <td><button onclick="removeTask(${index})">Remove</button></td>
         </tr>
     `).join('');
+    // console.log("tasks:", tasks);
+}
+
+// Function to mark a task as complete
+function markTaskComplete(index) {
+    if (confirm(`Are you sure that this task has been completed?`)) {
+        tasks[index].completed = true;
+        render();
+    }
+}
+
+// Function to remove a task
+function removeTask(index) {
+    if (confirm(`Are you sure you want to remove this task from the list?`)) {
+        tasks.splice(index, 1);
+        render();
+    }
 }
 
 // Function to initialize the table
 function init() {
-    taskTable.innerHTML = ''; // Clear the table
+    taskTableBody.innerHTML = ''; // Clear the table
     tasks = []; // Reset the tasks array
     render(); // Call the render function
 }
