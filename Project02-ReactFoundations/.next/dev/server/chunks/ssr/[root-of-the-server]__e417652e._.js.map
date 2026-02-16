@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Phil%20XD/Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js"],"sourcesContent":["import { useState } from 'react';\r\n\r\nfunction Header({ title }) {\r\n  return <h1>{title ? title : 'Default title'}</h1>;\r\n}\r\n\r\nexport default function HomePage() {\r\n  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];\r\n\r\n  const [likes, setLikes] = useState(0);\r\n\r\n  function handleClick() {\r\n    setLikes(likes + 1);\r\n  }\r\n\r\n  return (\r\n    <div>\r\n      <Header title=\"React\" />\r\n      <ul>\r\n        {names.map((name) => (\r\n          <li key={name}>{name}</li>\r\n        ))}\r\n      </ul>\r\n      \r\n      <button onClick={handleClick}>Like({likes})</button>\r\n    </div>\r\n  );\r\n}"],"names":[],"mappings":";;;;;AAAA;;;AAEA,SAAS,OAAO,EAAE,KAAK,EAAE;IACvB,qBAAO,uWAAC;kBAAI,QAAQ,QAAQ;;;;;;AAC9B;AAEe,SAAS;IACtB,MAAM,QAAQ;QAAC;QAAgB;QAAgB;KAAoB;IAEnE,MAAM,CAAC,OAAO,SAAS,GAAG,IAAA,0UAAQ,EAAC;IAEnC,SAAS;QACP,SAAS,QAAQ;IACnB;IAEA,qBACE,uWAAC;;0BACC,uWAAC;gBAAO,OAAM;;;;;;0BACd,uWAAC;0BACE,MAAM,GAAG,CAAC,CAAC,qBACV,uWAAC;kCAAe;uBAAP;;;;;;;;;;0BAIb,uWAAC;gBAAO,SAAS;;oBAAa;oBAAM;oBAAM;;;;;;;;;;;;;AAGhD"}}]
+}

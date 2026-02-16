@@ -1,0 +1,127 @@
+[00:00:02.079] Server  LOG     ✓ Ready in 1358ms
+[00:00:51.166] Server  ERROR   ⨯ ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[00:00:52.282] Browser ERROR   uncaughtError: Error: ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[00:00:52.449] Browser ERROR   ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:00:52.940] Browser ERROR   ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:07:34.302] Server  ERROR   ⨯ ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[00:07:34.802] Browser ERROR   uncaughtError: Error: ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+
+[00:07:35.041] Browser ERROR   ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:07:35.041] Browser ERROR   ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:07:45.283] Browser ERROR   ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[00:15:41.015] Browser ERROR   ./Documents/Lehman/Spring2026/CMP343_FullStackWebDev/LehmanCMP343Workspace/Project02-ReactFoundations/app/page.js:1:10
+Ecmascript file had an error
+> 1 | import { useState } from 'react';
+    |          ^^^^^^^^
+  2 |
+  3 | function Header({ title }) {
+  4 |   return <h1>{title ? title : 'Default title'}</h1>;
+
+You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+
+ Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
