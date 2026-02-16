@@ -11,14 +11,21 @@
     <script type="text/jsx">
       const app = document.getElementById('app');
 
-      function Header() {
-        return <h1>Develop. Preview. Ship.</h1>;
+      function Header({ title }) {
+        console.log(title);
+        return <h1>{title ? title : 'Default title'}</h1>;
       }
 
       function HomePage() {
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
         return (<div>
-            {/* nesting the Header component */}
-            <Header />
+            <Header title="React" />
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
           </div>
         );
       }
