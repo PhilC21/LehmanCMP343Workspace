@@ -2,22 +2,16 @@
   <body>
     <div id="app"></div>
 
-    <script type="text/javascript">
-      // select the dive element with 'app' id
-      const app = document.getElementById('app');
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-      // create a new H1 element
-      const header = document.createElement('h1');
-      
-      // create a new text node for the H1 element
-      const text = 'Develop. Preview. Ship.';
-      const headerContent = document.createTextNode(text);
-      
-      // append the text teo the H1 element
-      header.appendChild(headerContent);
-      
-      // place the H1 element inside the div
-      app.appendChild(header);
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+      const root = ReactDOM.createRoot(app);
+      root.render(<h1>Develop. Preview. Ship.</h1>);
     </script>
   </body>
 </html>
