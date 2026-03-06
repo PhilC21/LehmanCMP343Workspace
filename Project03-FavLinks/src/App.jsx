@@ -3,7 +3,7 @@ import LinkContainer from "./components/LinkContainer"
 function App() {
 
   return (
-    <div>
+    <div className="min-h-screen bg-zinc-700">
       <LinkContainer />
     </div>
   )
