@@ -28,16 +28,15 @@ function Form(props) {
             className="w-full px-3 py-2 bg-slate-200 border border-slate-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500" />
 
             <label htmlFor="LinkURL"
-            className="block text-sm font-medium text-slate-100 mb-1">
+            className="block text-sm font-medium text-slate-100 mb-1 mt-1">
                 Link URL:
             </label>
             <input type="text" id="linkURL" name="LinkURL" value={linkURL} onChange={handleURLChange} 
             className="w-full px-3 py-2 bg-slate-200 border border-slate-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500" />
 
-            <br/><br/>
 
             <input type="submit" value="Submit" 
-            className="px-4 py-2 bg-green-600 text-white font-medium rounded-md hover:bg-green-700" />
+            className="px-4 py-2 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 mt-4" />
         </form>
     )
     
