@@ -16,7 +16,7 @@ const LinkContainer = (props) => {
 
         const ok = window.confirm(
             `Are you sure you want to delete "${link.linkName}"?`
-        );
+        )
         if (!ok) {
             return // do nothing if cancelled
         }
@@ -32,7 +32,6 @@ const LinkContainer = (props) => {
     return (
         <div className="max-w-3xl mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold text-purple-600 mb-1">My Favorite Links</h1>
-
 
             <p className="text-slate-300 mb-6">Add a new link with a name and URL to the table!</p>
 

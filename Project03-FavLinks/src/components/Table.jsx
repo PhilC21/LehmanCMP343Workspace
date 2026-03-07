@@ -3,7 +3,7 @@ function TableHeader() {
     // responsible for rendering the head of the table with the appropriate columns.
     return (
         <thead>
-            <tr className="bg-purple-600 text-white">
+            <tr className="bg-purple-800 text-white">
                 <th className="text-left py-3 px-4">Name</th>
                 <th className="text-left py-3 px-4">URL</th>
                 <th className="text-left py-3 px-4">Remove</th>
@@ -17,7 +17,7 @@ const TableBody = (props) => {
     // responsible for rendering the data for the table.
     const rows = props.linkData.map((row, index) => {
         return (
-            <tr key={index} className="border-b border-slate-200 bg-slate-50 even:bg-white">
+            <tr key={index} className="border-b border-slate-200 bg-white even:bg-gray-100 hover:bg-green-100">
                 <td className="py-3 px-4">{row.linkName}</td>
                 <td className="py-3 px-4">
                     <a href={row.linkURL} target="_blank" rel="noopener noreferrer"
