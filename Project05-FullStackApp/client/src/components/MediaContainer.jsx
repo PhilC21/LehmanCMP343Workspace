@@ -4,6 +4,7 @@ import MediaTable from './MediaTable'
 import Form from './Form'
 import * as api from '../api'
 import { toPayload } from '../utils/media'
+import * as ui from '../styles/ui'
 
 // prepare data from the database to be safely used by the form
 // make sure there are no undifined values
@@ -21,7 +22,7 @@ const toFormValues = (item) => ({
 function MediaContainer() {
     // all media items to be displayed in the table
     const [items, setItems] = useState([])
-    
+
     // control UI state
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
@@ -102,52 +103,61 @@ function MediaContainer() {
     }
 
     return (
-        <div className="media-app">
-            <h1>Media Tracker</h1>
-            <p className="media-lead">
-                Keep track of various forms of media that you have or are planning to consume.
-                This includes movies, books, and video games.
-            </p>
+        <div className={ui.pageShell}>
+            <div className="mx-auto max-w-5xl px-4 py-10">
+                <header className="mb-8">
+                    <h1 className={`${ui.heading} text-4xl`}>Media Tracker</h1>
+                    <p className={`mt-3 max-w-3xl text-base leading-7 ${ui.mutedText}`}>
+                        Keep track of movies, books, and video games you are planning to
+                        consume or have already finished.
+                    </p>
+                </header>
 
-            {/* display error message if something fails */}
-            {error && <p className="media-error" role="alert">{error}</p>}
+                {error && (
+                    <div className="mb-6 rounded-xl border border-red-400/20 bg-red-950/30 px-4 py-3 text-sm text-red-300">
+                        {error}
+                    </div>
+                )}
 
-            {/* Show add button once data is loaded */}
-            {!loading && (
-                <Link to="/addmedia" className="btn-add-media">
-                    Add New Media
-                </Link>
-            )}
+                {!loading && (
+                    <div className="mb-6">
+                        <Link to="/addmedia" className={ui.primaryBtn}>
+                            Add New Media
+                        </Link>
+                    </div>
+                )}
 
-            {/* show loading state vs table display */}
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <MediaTable
-                    items={items}
-                    onDelete={handleDelete}
-                    onEdit={handleEdit}
-                    editingId={editingItem?.id ?? null}
-                />
-            )}
+                <section className={`${ui.panel} overflow-hidden`}>
+                    {loading ? (
+                        <div className="px-6 py-8 text-[#95B2B8]">Loading...</div>
+                    ) : (
+                        <MediaTable
+                            items={items}
+                            onDelete={handleDelete}
+                            onEdit={handleEdit}
+                            editingId={editingItem?.id ?? null}
+                        />
+                    )}
+                </section>
+            </div>
 
-            {/* edit modal; only shows when editing an item */}
             {editingItem && (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        <p className="media-breadcrumb">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+                    <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-[#95B2B8]/20 bg-[#2E0F15] p-6 shadow-2xl">
+                        <div className="mb-5 flex items-center justify-between gap-4">
                             <button
                                 type="button"
-                                className="link-button"
+                                className="text-md px-4 font-medium text-white bg-slate-500 tansition hover:text-black hover:bg-red-400"
                                 onClick={handleCancelEdit}
                             >
-                                Close Edit
+                                Close
                             </button>
-                        </p>
 
-                        <h2>Edit Media Item</h2>
+                            <h2 className={`${ui.subheading} text-right`}>
+                                Edit Media Item
+                            </h2>
+                        </div>
 
-                        {/* reusable form in edit mode */}
                         <Form
                             key={editingItem.id}
                             initialValues={toFormValues(editingItem)}

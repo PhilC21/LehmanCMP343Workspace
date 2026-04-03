@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   return (
-    <div className="app-shell">
+    <div>
       <Routes>
         <Route path="/" element={<MediaContainer />} />
         <Route path="/addmedia" element={<AddMediaPage />} />

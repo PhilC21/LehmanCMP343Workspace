@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import * as ui from '../styles/ui'
 
 function Form({ initialValues, isEditing, onSubmit, onCancelEdit, onCancelAdd }) {
-    
+
     // stores all form field values (controlled inputs)
     const [values, setValues] = useState(initialValues)
 
@@ -60,144 +61,153 @@ function Form({ initialValues, isEditing, onSubmit, onCancelEdit, onCancelAdd })
     }
 
     return (
-        <form className="media-form" onSubmit={handleSubmit}>
-            <label>Title: *</label>
-            <input
-                type="text"
-                name="title"
-                value={values.title}
-                onChange={handleChange}
-            />
-            {titleError && <p className="field-error">{titleError}</p>}
+        <div>
+            <p className="mt-1 mb-3 max-w-3xl text-red-300">
+                All fields marked with * are requied.
+            </p>
+            <form onSubmit={handleSubmit}>
+                <div className="grid gap-3 md:grid-cols-2">
+                    <div className="md:col-span-2">
+                        <label className={ui.labelBase}>Title: *</label>
+                        <input
+                            type="text"
+                            name="title"
+                            value={values.title}
+                            onChange={handleChange}
+                            className={ui.inputBase}
+                        />
+                        {titleError && <p className={ui.errorText}>{titleError}</p>}
+                    </div>
 
-            <label>Image URL:</label>
-            <input
-                type="url"
-                name="image_url"
-                value={values.image_url}
-                onChange={handleChange}
-            />
+                    <div className="md:col-span-2">
+                        <label className={ui.labelBase}>Image URL:</label>
+                        <input
+                            type="url"
+                            name="image_url"
+                            value={values.image_url}
+                            onChange={handleChange}
+                            className={ui.inputBase}
+                        />
+                    </div>
 
-            <label>Media type: *</label>
-            <select
-                name="media_type"
-                value={values.media_type}
-                onChange={handleChange}
-            >
-                <option value="">Select type</option>
-                <option value="book">Book</option>
-                <option value="movie">Movie</option>
-                <option value="game">Game</option>
-            </select>
-            {mediaTypeError && <p className="field-error">{mediaTypeError}</p>}
+                    <div>
+                        <label className={ui.labelBase}>Media type: *</label>
+                        <select
+                            name="media_type"
+                            value={values.media_type}
+                            onChange={handleChange}
+                            className={ui.inputBase}
+                        >
+                            <option value="">Select type</option>
+                            <option value="book">Book</option>
+                            <option value="movie">Movie</option>
+                            <option value="game">Game</option>
+                        </select>
+                        {mediaTypeError && <p className={ui.errorText}>{mediaTypeError}</p>}
+                    </div>
 
-            <label>Genre:</label>
-            <input
-                type="text"
-                name="genre"
-                value={values.genre}
-                onChange={handleChange}
-            />
+                    <div>
+                        <label className={ui.labelBase}>Genre:</label>
+                        <input
+                            type="text"
+                            name="genre"
+                            value={values.genre}
+                            onChange={handleChange}
+                            className={ui.inputBase}
+                        />
+                    </div>
 
-            <label>Status: *</label>
-            <div className="radio-group">
-                <label>
-                    <input
-                        type="radio"
-                        name="status"
-                        value="planned"
-                        checked={values.status === 'planned'}
-                        onChange={handleChange}
-                    />
-                    Planned
-                </label>
+                    <div className="md:col-span-2">
+                        <label className={ui.labelBase}>Status: *</label>
+                        <div className="mt-3 flex flex-wrap gap-4">
+                            {[
+                                { label: 'Planned', value: 'planned' },
+                                { label: 'In Progress', value: 'in_progress' },
+                                { label: 'Completed', value: 'completed' },
+                                { label: 'Dropped', value: 'dropped' },
+                            ].map((option) => (
+                                <label
+                                    key={option.value}
+                                    className="flex cursor-pointer items-center gap-2 rounded-lg border border-[#95B2B8]/20 bg-[#120309] px-3 py-2 text-sm text-white"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="status"
+                                        value={option.value}
+                                        checked={values.status === option.value}
+                                        onChange={handleChange}
+                                        className="accent-green-500"
+                                    />
+                                    {option.label}
+                                </label>
+                            ))}
+                        </div>
+                        {statusError && <p className={ui.errorText}>{statusError}</p>}
+                    </div>
 
-                <label>
-                    <input
-                        type="radio"
-                        name="status"
-                        value="in_progress"
-                        checked={values.status === 'in_progress'}
-                        onChange={handleChange}
-                    />
-                    In Progress
-                </label>
+                    <div>
+                        <label className={ui.labelBase}>Rating:</label>
+                        <input
+                            type="number"
+                            name="rating"
+                            step="0.1"
+                            value={values.rating}
+                            onChange={handleChange}
+                            placeholder='Can be between 1 and 10 to one decimal place. e.g. 6.4'
+                            className={ui.inputBase}
+                        />
+                    </div>
 
-                <label>
-                    <input
-                        type="radio"
-                        name="status"
-                        value="completed"
-                        checked={values.status === 'completed'}
-                        onChange={handleChange}
-                    />
-                    Completed
-                </label>
+                    <div>
+                        <label className={ui.labelBase}>Release Year:</label>
+                        <input
+                            type="number"
+                            name="release_year"
+                            value={values.release_year}
+                            onChange={handleChange}
+                            className={ui.inputBase}
+                        />
+                    </div>
 
-                <label>
-                    <input
-                        type="radio"
-                        name="status"
-                        value="dropped"
-                        checked={values.status === 'dropped'}
-                        onChange={handleChange}
-                    />
-                    Dropped
-                </label>
-            </div>
-            {statusError && <p className="field-error">{statusError}</p>}
+                    <div className="md:col-span-2">
+                        <label className={ui.labelBase}>Notes:</label>
+                        <textarea
+                            name="notes"
+                            value={values.notes}
+                            onChange={handleChange}
+                            rows={4}
+                            className={ui.inputBase}
+                        />
+                    </div>
+                </div>
 
-            <label>Rating:</label>
-            <input
-                type="number"
-                name="rating"
-                step="0.1"
-                value={values.rating}
-                onChange={handleChange}
-            />
-
-            <label>Release Year:</label>
-            <input
-                type="number"
-                name="release_year"
-                value={values.release_year}
-                onChange={handleChange}
-            />
-
-            <label>Notes:</label>
-            <textarea
-                name="notes"
-                value={values.notes}
-                onChange={handleChange}
-                rows={3}
-            />
-
-            <div className="form-actions">
-                <button type="submit">
-                    {isEditing ? 'Save Changes' : 'Add Item'}
-                </button>
-
-                {isEditing && onCancelEdit && (
-                    <button
-                        type="button"
-                        className="btn-secondary"
-                        onClick={onCancelEdit}
-                    >
-                        Cancel
+                <div className="flex flex-wrap gap-3 pt-2">
+                    <button type="submit" className={ui.primaryBtn}>
+                        {isEditing ? 'Save Changes' : 'Add Item'}
                     </button>
-                )}
 
-                {!isEditing && onCancelAdd && (
-                    <button
-                        type="button"
-                        className="btn-secondary"
-                        onClick={onCancelAdd}
-                    >
-                        Cancel
-                    </button>
-                )}
-            </div>
-        </form>
+                    {isEditing && onCancelEdit && (
+                        <button
+                            type="button"
+                            className={ui.secondaryBtn}
+                            onClick={onCancelEdit}
+                        >
+                            Cancel
+                        </button>
+                    )}
+
+                    {!isEditing && onCancelAdd && (
+                        <button
+                            type="button"
+                            className={ui.secondaryBtn}
+                            onClick={onCancelAdd}
+                        >
+                            Cancel
+                        </button>
+                    )}
+                </div>
+            </form>
+        </div>
     )
 }
 
