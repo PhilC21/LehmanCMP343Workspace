@@ -60,6 +60,18 @@ function Form({ initialValues, isEditing, onSubmit, onCancelEdit, onCancelAdd })
         }
     }
 
+    // define status options
+    const statusOptions = [
+        { label: 'Planned', value: 'planned' },
+        { label: 'In Progress', value: 'in_progress' },
+        { label: 'Completed', value: 'completed' },
+    ]
+
+    // only include "Dropped" when editing
+    if (isEditing) {
+        statusOptions.push({ label: 'Dropped', value: 'dropped' })
+    }
+
     return (
         <div>
             <p className="mt-1 mb-3 max-w-3xl text-red-300">
@@ -120,12 +132,7 @@ function Form({ initialValues, isEditing, onSubmit, onCancelEdit, onCancelAdd })
                     <div className="md:col-span-2">
                         <label className={ui.labelBase}>Status: *</label>
                         <div className="mt-3 flex flex-wrap gap-4">
-                            {[
-                                { label: 'Planned', value: 'planned' },
-                                { label: 'In Progress', value: 'in_progress' },
-                                { label: 'Completed', value: 'completed' },
-                                { label: 'Dropped', value: 'dropped' },
-                            ].map((option) => (
+                            {statusOptions.map((option) => (
                                 <label
                                     key={option.value}
                                     className="flex cursor-pointer items-center gap-2 rounded-lg border border-[#95B2B8]/20 bg-[#120309] px-3 py-2 text-sm text-white"

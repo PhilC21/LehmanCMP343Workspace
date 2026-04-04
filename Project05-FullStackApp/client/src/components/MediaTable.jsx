@@ -1,20 +1,5 @@
 import * as ui from '../styles/ui'
-
-// converts database values into user-friendly labels
-const formatStatus = (status) => {
-    switch (status) {
-        case 'planned':
-            return 'Planned'
-        case 'in_progress':
-            return 'In Progress'
-        case 'completed':
-            return 'Completed'
-        case 'dropped':
-            return 'Dropped'
-        default:
-            return status || '—'
-    }
-}
+import { formatStatus, getStatusStyles } from '../utils/media'
 
 function TableHeader() {
     // responsible for rendering the head of the table
@@ -27,7 +12,6 @@ function TableHeader() {
                 <th className={ui.tableHeaderCell}>Genre</th>
                 <th className={ui.tableHeaderCell}>Status</th>
                 <th className={ui.tableHeaderCell}>Rating</th>
-                <th className={ui.tableHeaderCell}>Year</th>
                 <th className={ui.tableHeaderCell}>Image</th>
                 <th className={ui.tableHeaderCell}>Actions</th>
             </tr>
@@ -35,14 +19,14 @@ function TableHeader() {
     )
 }
 
-function TableBody({ items, onDelete, onEdit, editingId }) {
+function TableBody({ items, onDelete, onEdit, onView, editingId }) {
 
     // if there are no items yet, render a single row with a message
     if (items.length === 0) {
         return (
             <tbody>
                 <tr>
-                    <td className="px-4 py-10 text-center text-sm text-[#95B2B8]" colSpan={8}>No items yet.</td>
+                    <td className="px-4 py-10 text-center text-sm text-[#95B2B8]" colSpan={7}>No items yet.</td>
                 </tr>
             </tbody>
         )
@@ -71,17 +55,7 @@ function TableBody({ items, onDelete, onEdit, editingId }) {
 
                     <td className={ui.tableCell}>
                         <span
-                            className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium border ${
-                                row.status === 'planned'
-                                    ? 'bg-[#95B2B8]/10 text-[#95B2B8] border-[#95B2B8]/30'
-                                    : row.status === 'in_progress'
-                                        ? 'bg-yellow-500/10 text-yellow-300 border-yellow-500/30'
-                                        : row.status === 'completed'
-                                            ? 'bg-green-500/10 text-green-300 border-green-500/30'
-                                            : row.status === 'dropped'
-                                                ? 'bg-red-500/10 text-red-300 border-red-500/30'
-                                                : 'bg-[#120309] text-white border-[#95B2B8]/20'
-                            }`}
+                            className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium border ${getStatusStyles(row.status)}`}
                         >
                             {formatStatus(row.status)}
                         </span>
@@ -89,10 +63,6 @@ function TableBody({ items, onDelete, onEdit, editingId }) {
 
                     <td className={ui.tableCell}>
                         {row.rating ?? '—'}
-                    </td>
-
-                    <td className={ui.tableCell}>
-                        {row.release_year ?? '—'}
                     </td>
 
                     <td className={ui.tableCell}>
@@ -108,7 +78,6 @@ function TableBody({ items, onDelete, onEdit, editingId }) {
                                     alt={row.title}
                                     className="h-12 w-10 rounded object-cover"
                                 />
-                                View
                             </a>
                         ) : (
                             '—'
@@ -117,6 +86,14 @@ function TableBody({ items, onDelete, onEdit, editingId }) {
 
                     <td className={ui.tableCell}>
                         <div className="flex flex-wrap gap-2">
+                            <button
+                                type="button"
+                                onClick={() => onView(row)}
+                                className={`${ui.actionBtn} border border-[#95B2B8]/30 bg-[#120309] text-[#95B2B8] hover:text-white`}
+                            >
+                                View
+                            </button>
+
                             <button
                                 type="button"
                                 onClick={() => onEdit(row)}
@@ -150,6 +127,7 @@ function MediaTable(props) {
                     items={props.items}
                     onDelete={props.onDelete}
                     onEdit={props.onEdit}
+                    onView={props.onView}
                     editingId={props.editingId}
                 />
             </table>
