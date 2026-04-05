@@ -19,6 +19,13 @@ function MediaContainer() {
     const [editingItem, setEditingItem] = useState(null)
     const [selectedItem, setSelectedItem] = useState(null)
 
+    const [filterType, setFilterType] = useState('all')
+    
+    const filteredItems =
+        filterType === 'all'
+            ? items
+            : items.filter((item) => item.media_type === filterType)
+
     // grab all items from the db
     const load = async () => {
         setError('')
@@ -103,6 +110,7 @@ function MediaContainer() {
         }
     }
 
+    
     return (
         <div className={ui.pageShell}>
             <div className="mx-auto max-w-5xl px-4 py-10">
@@ -121,7 +129,23 @@ function MediaContainer() {
                 )}
 
                 {!loading && (
-                    <div className="mb-6">
+                    <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <label className={`${ui.labelBase} mb-2 block`}>
+                                Filter by Type:
+                            </label>
+                            <select
+                                value={filterType}
+                                onChange={(e) => setFilterType(e.target.value)}
+                                className="w-48 rounded-lg border border-[#95B2B8]/25 bg-[#120309] px-3 py-2 text-white outline-none focus:border-[#307351]"
+                            >
+                                <option value="all">Show All</option>
+                                <option value="movie">Movies</option>
+                                <option value="game">Games</option>
+                                <option value="book">Books</option>
+                            </select>
+                        </div>
+
                         <Link to="/addmedia" className={ui.primaryBtn}>
                             Add New Media
                         </Link>
@@ -133,7 +157,7 @@ function MediaContainer() {
                         <div className="px-6 py-8 text-[#95B2B8]">Loading...</div>
                     ) : (
                         <MediaTable
-                            items={items}
+                            items={filteredItems}
                             onDelete={handleDelete}
                             onEdit={handleEdit}
                             onView={handleView}

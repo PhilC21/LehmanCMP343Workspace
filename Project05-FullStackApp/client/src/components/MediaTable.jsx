@@ -13,7 +13,7 @@ function TableHeader() {
                 <th className={ui.tableHeaderCell}>Status</th>
                 <th className={ui.tableHeaderCell}>Rating</th>
                 <th className={ui.tableHeaderCell}>Image</th>
-                <th className={ui.tableHeaderCell}>Actions</th>
+                <th className={`${ui.tableHeaderCell} px-4 py-3 min-w-[180px]`}>Actions</th>
             </tr>
         </thead>
     )
@@ -41,7 +41,7 @@ function TableBody({ items, onDelete, onEdit, onView, editingId }) {
                     className={`border-t border-[#95B2B8]/10 transition ${editingId === row.id ? 'bg-[#70163C]/30' : 'hover:bg-[#70163C]/20'
                         }`}
                 >
-                    <td className={ui.tableCell}>
+                    <td className={`${ui.tableCell} px-2 py-3 break-words`}>
                         <div className="font-medium text-white">{row.title}</div>
                     </td>
 
@@ -55,7 +55,7 @@ function TableBody({ items, onDelete, onEdit, onView, editingId }) {
 
                     <td className={ui.tableCell}>
                         <span
-                            className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium border ${getStatusStyles(row.status)}`}
+                            className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium border whitespace-nowrap ${getStatusStyles(row.status)}`}
                         >
                             {formatStatus(row.status)}
                         </span>
@@ -84,8 +84,8 @@ function TableBody({ items, onDelete, onEdit, onView, editingId }) {
                         )}
                     </td>
 
-                    <td className={ui.tableCell}>
-                        <div className="flex flex-wrap gap-2">
+                    <td className={`{ui.tableCell} px-4 py-3 min-w-[180px]`}>
+                        <div className="flex items-center gap-2 whitespace-nowrap">
                             <button
                                 type="button"
                                 onClick={() => onView(row)}
@@ -121,7 +121,7 @@ function TableBody({ items, onDelete, onEdit, onView, editingId }) {
 function MediaTable(props) {
     return (
         <div className="overflow-x-auto">
-            <table className="min-w-full border-separate border-spacing-0">
+            <table className="min-w-full border-separate border-spacing-0 table-fixed">
                 <TableHeader />
                 <TableBody
                     items={props.items}
