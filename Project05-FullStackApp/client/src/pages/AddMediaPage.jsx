@@ -5,6 +5,7 @@ import * as api from '../api'
 import { toPayload } from '../utils/media'
 import * as ui from '../styles/ui'
 
+
 // default empty values used when adding a new media item
 const emptyForm = {
     title: '',
@@ -37,6 +38,8 @@ function AddMediaPage() {
 
     return (
         <div className={ui.pageShell}>
+            <title>Media Tracker - Add Media</title>
+
             <div className="mx-auto max-w-5xl px-4 py-10">
                 <button
                     type="button"
