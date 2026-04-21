@@ -8,7 +8,7 @@ export const styles = {
         container: "w-64 min-h-screen bg-emerald-600 text-white p-6",
         title: "text-2xl font-bold mb-8",
         nav: "space-y-2",
-        link: "block px-3 py-2 rounded-lg transition font-medium hover:bg-emerald-500",
+        link: "flex px-3 py-2 gap-3 rounded-lg transition font-medium hover:bg-emerald-500",
         activeLink: "bg-emerald-500 shadow-sm text-slate-700",
     },
 
@@ -20,7 +20,7 @@ export const styles = {
 
     button: {
         primary:
-            "bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-500 transition",
+            "flex gap-2 bg-emerald-600 text-white px-2 py-2 rounded-lg hover:bg-emerald-500 transition",
     },
 
     card: {

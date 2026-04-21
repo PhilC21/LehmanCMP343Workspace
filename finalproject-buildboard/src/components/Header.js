@@ -1,5 +1,5 @@
 import { styles } from "@/lib/styles";
-
+import { PlusIcon } from "@heroicons/react/24/outline";
 export default function Header() {
     return (
         // main dashboard header section
@@ -10,7 +10,7 @@ export default function Header() {
                     Track your builds. Ship with clarity.
                 </p>
 
-                <button className={styles.button.primary}>+ New Project</button>
+                <button className={styles.button.primary}> <PlusIcon className="w-4" /> New Project</button>
             </div>
         </header>
     );

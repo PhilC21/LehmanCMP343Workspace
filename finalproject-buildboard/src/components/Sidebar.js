@@ -1,5 +1,6 @@
 "use client";
 
+import { HomeIcon, CubeIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { styles } from "@/lib/styles";
@@ -8,9 +9,9 @@ export default function Sidebar() {
     const pathname = usePathname();
 
     const navLinks = [
-        { label: "Dashboard", href: "/" },
-        { label: "Projects", href: "/projects" },
-        { label: "Add Project", href: "/projects/new" },
+        { label: "Dashboard", href: "/", icon: HomeIcon },
+        { label: "Projects", href: "/projects", icon: CubeIcon },
+        { label: "Add Project", href: "/projects/new", icon: PlusCircleIcon },
     ];
 
     return (
@@ -20,15 +21,16 @@ export default function Sidebar() {
 
             <nav className={styles.sidebar.nav}>
                 {navLinks.map((link) => {
+                    const LinkIcon = link.icon;
                     const isActive = pathname === link.href;
 
                     return (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`${styles.sidebar.link} ${isActive ? styles.sidebar.activeLink : ""
-                                }`}
+                            className={`${styles.sidebar.link} ${isActive ? styles.sidebar.activeLink : ""}`}
                         >
+                            <LinkIcon className="w-5" />
                             {link.label}
                         </Link>
                     );
