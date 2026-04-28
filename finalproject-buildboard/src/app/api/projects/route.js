@@ -23,13 +23,15 @@ export async function POST(request) {
     try {
         const body = await request.json();
 
+        const normalizedProgress = body.status === "completed" ? 100 : Number(body.progress ?? 0);
+
         const newProject = {
             title: body.title,
             description: body.description,
             category: body.category,
             status: body.status,
             priority: body.priority,
-            progress: body.progress ?? 0,
+            progress: normalizedProgress,
         };
 
         const { data, error } = await supabaseServer

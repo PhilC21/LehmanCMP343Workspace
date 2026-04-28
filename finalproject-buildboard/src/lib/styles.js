@@ -28,16 +28,31 @@ export const styles = {
             "bg-white rounded-2xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition",
         empty:
             "border border-dashed border-slate-300 rounded-lg p-8 text-center text-slate-500",
+        project:
+            "bg-white rounded-2xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition",
     },
 
     grid: {
         stats: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8",
         main: "grid grid-cols-1 lg:grid-cols-3 gap-6",
+        projects: "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6",
     },
 
     text: {
         sectionTitle: "text-xl font-semibold text-slate-800 mb-4",
         statTitle: "text-sm text-slate-500",
         statValue: "text-2xl font-semibold text-slate-800 mt-2",
+    },
+
+    form: {
+        label: "mb-2 block text-md font-bold text-slate-700",
+        inputField:
+            "w-full rounded-lg border border-slate-300 outline-none text-slate-700 px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500",
+        grid: "grid grid-cols-1 md:grid-cols-2 gap-6",
+    },
+
+    badge: {
+        status:
+            "rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700 capitalize",
     },
 };
