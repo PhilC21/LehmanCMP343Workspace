@@ -49,6 +49,7 @@ export const styles = {
         inputField:
             "w-full rounded-lg border border-slate-300 outline-none text-slate-700 px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500",
         grid: "grid grid-cols-1 md:grid-cols-2 gap-6",
+        error: "rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700"
     },
 
     badge: {

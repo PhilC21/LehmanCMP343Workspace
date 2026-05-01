@@ -1,20 +1,27 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { styles } from "@/lib/styles";
 
-export default function ProjectForm({ onSuccess }) {
+export default function ProjectForm({
+    onSuccess,
+    initialData = null,
+    mode = "create",
+    projectId = null,
+}) {
     const [formData, setFormData] = useState({
-        title: "",
-        description: "",
-        category: "",
-        status: "",
-        priority: "",
-        progress: "",
+        title: initialData?.title || "",
+        description: initialData?.description || "",
+        category: initialData?.category || "",
+        status: initialData?.status || "",
+        priority: initialData?.priority || "",
+        progress: initialData?.progress ?? "",
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const router = useRouter();
 
     function handleChange(event) {
         // console.log(event.target.value)
@@ -30,13 +37,18 @@ export default function ProjectForm({ onSuccess }) {
     async function handleSubmit(event) {
         event.preventDefault();
         // console.log("Form data:", formData);
-        
+
         setIsSubmitting(true);
         setErrorMessage("");
 
         try {
-            const response = await fetch("/api/projects", {
-                method: "POST",
+            const url =
+                mode === "edit" ? `/api/projects/${projectId}` : "/api/projects";
+
+            const method = mode === "edit" ? "PUT" : "POST";
+
+            const response = await fetch(url, {
+                method,
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -45,11 +57,10 @@ export default function ProjectForm({ onSuccess }) {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.error || "Failed to create project");
+                throw new Error(errorData.error || "Failed to save project");
             }
 
             if (onSuccess) onSuccess();
-
         } catch (error) {
             setErrorMessage(error.message);
         } finally {
@@ -60,16 +71,14 @@ export default function ProjectForm({ onSuccess }) {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             {errorMessage && (
-                <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700">
+                <div className={styles.form.error}>
                     {errorMessage}
                 </div>
             )}
 
             {/* Title */}
             <div>
-                <label className={styles.form.label}>
-                    Project Title:
-                </label>
+                <label className={styles.form.label}>Project Title:</label>
                 <input
                     name="title"
                     value={formData.title}
@@ -82,9 +91,7 @@ export default function ProjectForm({ onSuccess }) {
 
             {/* Description */}
             <div>
-                <label className={styles.form.label}>
-                    Description:
-                </label>
+                <label className={styles.form.label}>Description:</label>
                 <textarea
                     name="description"
                     value={formData.description}
@@ -95,12 +102,10 @@ export default function ProjectForm({ onSuccess }) {
                 />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className={styles.form.grid}>
                 {/* Category */}
                 <div>
-                    <label className={styles.form.label}>
-                        Category:
-                    </label>
+                    <label className={styles.form.label}>Category:</label>
                     <select
                         name="category"
                         value={formData.category}
@@ -119,9 +124,7 @@ export default function ProjectForm({ onSuccess }) {
 
                 {/* Status */}
                 <div>
-                    <label className={styles.form.label}>
-                        Status:
-                    </label>
+                    <label className={styles.form.label}>Status:</label>
                     <select
                         name="status"
                         value={formData.status}
@@ -139,9 +142,7 @@ export default function ProjectForm({ onSuccess }) {
 
                 {/* Priority */}
                 <div>
-                    <label className={styles.form.label}>
-                        Priority:
-                    </label>
+                    <label className={styles.form.label}>Priority:</label>
                     <select
                         name="priority"
                         value={formData.priority}
@@ -158,9 +159,7 @@ export default function ProjectForm({ onSuccess }) {
 
                 {/* Progress */}
                 <div>
-                    <label className={styles.form.label}>
-                        Progress:
-                    </label>
+                    <label className={styles.form.label}>Progress:</label>
                     <input
                         name="progress"
                         type="number"
@@ -174,13 +173,35 @@ export default function ProjectForm({ onSuccess }) {
                 </div>
             </div>
 
-            <button
-                type="submit"
-                disabled={isSubmitting}
-                className={styles.button.primary}
-            >
-                {isSubmitting ? "Saving..." : "Save Project"}
-            </button>
+            <div className="flex gap-3">
+                <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`${styles.button.primary} disabled:cursor-not-allowed disabled:opacity-60`}
+                >
+                    {isSubmitting
+                        ? mode === "edit"
+                            ? "Updating..."
+                            : "Saving..."
+                        : mode === "edit"
+                            ? "Update Project"
+                            : "Save Project"}
+                </button>
+
+                <button
+                    type="button"
+                    onClick={() => {
+                        if (window.history.length > 1) {
+                            router.back();
+                        } else {
+                            router.push("/projects");
+                        }
+                    }}
+                    className="bg-red-500 rounded-lg border border-slate-300 px-4 py-2 text-white hover:opacity-80"
+                >
+                    Cancel
+                </button>
+            </div>
         </form>
     );
 }
