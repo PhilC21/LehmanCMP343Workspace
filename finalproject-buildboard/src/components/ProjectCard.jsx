@@ -28,15 +28,17 @@ export default function ProjectCard({ project }) {
 
     return (
         <article className={styles.card.project}>
-            <div className="flex items-start justify-between gap-4">
-                <div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="min-w-0">
                     <h3 className="text-lg font-semibold text-slate-800">
                         {project.title}
                     </h3>
                     <p className="mt-1 text-sm text-slate-500 capitalize">{project.category}</p>
                 </div>
 
-                <span className={styles.badge.status}>
+                <span
+                    className={`${styles.badge.base} ${styles.badge.status[project.status] || "bg-slate-100 text-slate-700"}`}
+                >
                     {project.status}
                 </span>
             </div>
@@ -46,9 +48,13 @@ export default function ProjectCard({ project }) {
             </p>
 
             <div className="mt-5 space-y-3">
-                <div className="flex items-center justify-between text-sm text-slate-600">
-                    <span className="capitalize">Priority: {project.priority}</span>
-                    <span>{project.progress}%</span>
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-sm text-slate-600">
+                    <span
+                        className={`${styles.badge.base} ${styles.badge.priority[project.priority] || "bg-slate-100 text-slate-700"}`}
+                    >
+                        Priority: {project.priority}
+                    </span>                    
+                    <span>Progress: {project.progress}%</span>
                 </div>
 
                 {/* progress bar */}

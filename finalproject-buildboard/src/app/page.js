@@ -66,9 +66,9 @@ export default async function Home() {
                             {recentProjects.map((project) => (
                                 <li
                                     key={project.id}
-                                    className="flex rounded-lg px-3 py-2 mb-2 items-center justify-between border border-slate-300 hover:bg-slate-100"
+                                    className="flex flex-col gap-3 rounded-lg border border-slate-200 p-3 sm:flex-row sm:items-center sm:justify-between"
                                 >
-                                    <div>
+                                    <div className="min-w-0">
                                         <p className="font-semibold text-slate-800">
                                             {project.title}
                                         </p>
@@ -77,7 +77,9 @@ export default async function Home() {
                                         </p>
                                     </div>
 
-                                    <span className={styles.badge.status}>
+                                    <span
+                                        className={`${styles.badge.base} ${styles.badge.status[project.status] || "bg-slate-100 text-slate-700"} self-start sm:self-auto`}
+                                    >
                                         {project.status}
                                     </span>
                                 </li>
