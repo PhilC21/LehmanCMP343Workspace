@@ -1,30 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { styles } from "@/lib/styles";
+import DeleteProjectButton from "@/components/DeleteProjectButton";
+import { useRouter } from "next/navigation";
 
 // small card for displaying one saved project
 export default function ProjectCard({ project }) {
     const router = useRouter();
-
-    async function handleDelete() {
-        const confirmDelete = window.confirm(
-            `Delete "${project.title}" project? This action CANNOT be undone.`
-        );
-
-        if (!confirmDelete) return;
-
-        const response = await fetch(`/api/projects/${project.id}`, {
-            method: "DELETE",
-        });
-
-        if (response.ok) {
-            router.refresh();
-        } else {
-            alert("Failed to delete project");
-        }
-    }
 
     return (
         <article className={styles.card.project}>
@@ -53,7 +36,7 @@ export default function ProjectCard({ project }) {
                         className={`${styles.badge.base} ${styles.badge.priority[project.priority] || "bg-slate-100 text-slate-700"}`}
                     >
                         Priority: {project.priority}
-                    </span>                    
+                    </span>
                     <span>Progress: {project.progress}%</span>
                 </div>
 
@@ -68,19 +51,24 @@ export default function ProjectCard({ project }) {
 
             <div className="mt-5 flex gap-3">
                 <Link
-                    href={`/projects/${project.id}/edit`}
+                    href={`/projects/${project.id}`}
                     className="rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                >
+                    View
+                </Link>
+
+                <Link
+                    href={`/projects/${project.id}/edit`}
+                    className={styles.button.primary}                
                 >
                     Edit
                 </Link>
 
-                <button
-                    type="button"
-                    onClick={handleDelete}
-                    className="rounded-lg border border-red-200 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
-                >
-                    Delete
-                </button>
+                <DeleteProjectButton
+                    projectId={project.id}
+                    projectTitle={project.title}
+                    onDeleteSuccess={() => router.refresh()}
+                />
             </div>
         </article>
     );

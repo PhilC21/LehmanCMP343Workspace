@@ -66,7 +66,7 @@ export default async function Home() {
                             {recentProjects.map((project) => (
                                 <li
                                     key={project.id}
-                                    className="flex flex-col gap-3 rounded-lg border border-slate-200 p-3 sm:flex-row sm:items-center sm:justify-between"
+                                    className="flex flex-col gap-3 rounded-lg border border-slate-200 p-3 sm:flex-row sm:items-center sm:justify-between transition hover:bg-zinc-200"
                                 >
                                     <div className="min-w-0">
                                         <p className="font-semibold text-slate-800">
