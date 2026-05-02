@@ -11,30 +11,30 @@ export default function ProjectDetailsBody({ project }) {
             </div>
 
             {/* Top row: Progress + Created/Updated */}
-            <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-xl border border-slate-200 p-5">
-                    <p className="text-sm text-slate-500">Progress:</p>
+            <div className={styles.grid.detailsTwoCol}>
+                <div className={styles.panel.box}>
+                    <p className={styles.meta.label}>Progress:</p>
 
                     <p className="mt-2 text-2xl font-semibold text-slate-800">
                         {project.progress}%
                     </p>
 
-                    <div className="mt-3 h-2 w-full rounded-full bg-slate-200">
+                    <div className={`mt-3 ${styles.progress.track}`}>
                         <div
-                            className="h-2 rounded-full bg-emerald-500"
+                            className={styles.progress.fill}
                             style={{ width: `${project.progress}%` }}
                         />
                     </div>
                 </div>
 
-                <div className="rounded-xl border border-slate-200 p-5">
-                    <p className="text-sm text-slate-500">Created:</p>
+                <div className={styles.panel.box}>
+                    <p className={styles.meta.label}>Created:</p>
                     <p className="mt-2 text-slate-800">
                         {new Date(project.created_at).toLocaleString()}
                     </p>
 
                     <div className="mt-5">
-                        <p className="text-sm text-slate-500">Last Updated:</p>
+                        <p className={styles.meta.label}>Last Updated:</p>
                         <p className="mt-2 text-slate-800">
                             {new Date(project.updated_at).toLocaleString()}
                         </p>
@@ -43,14 +43,14 @@ export default function ProjectDetailsBody({ project }) {
             </div>
 
             {/* Bottom row: Updates + To-do */}
-            <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div className="rounded-xl border border-slate-200 p-5">
-                    <p className="text-sm text-slate-500">Updates:</p>
+            <div className={styles.grid.detailsTwoCol}>
+                <div className={styles.panel.box}>
+                    <p className={styles.meta.label}>Updates:</p>
                     <p className="mt-2 text-slate-700">Under construction...</p>
                 </div>
 
-                <div className="rounded-xl border border-slate-200 p-5">
-                    <p className="text-sm text-slate-500">To-do:</p>
+                <div className={styles.panel.box}>
+                    <p className={styles.meta.label}>To-do:</p>
                     <p className="mt-2 text-slate-700">Under construction...</p>
                 </div>
             </div>

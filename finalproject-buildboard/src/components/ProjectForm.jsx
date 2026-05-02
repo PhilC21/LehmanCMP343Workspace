@@ -197,7 +197,7 @@ export default function ProjectForm({
                             router.push("/projects");
                         }
                     }}
-                    className="bg-red-500 rounded-lg border border-slate-300 px-4 py-2 text-white hover:opacity-80"
+                    className={styles.button.redBtn}
                 >
                     Cancel
                 </button>

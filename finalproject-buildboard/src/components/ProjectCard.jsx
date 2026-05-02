@@ -41,9 +41,9 @@ export default function ProjectCard({ project }) {
                 </div>
 
                 {/* progress bar */}
-                <div className="h-2 w-full rounded-full bg-slate-200">
+                <div className={styles.progress.track}>
                     <div
-                        className="h-2 rounded-full bg-emerald-500"
+                        className={styles.progress.fill}
                         style={{ width: `${project.progress}%` }}
                     />
                 </div>
@@ -52,14 +52,14 @@ export default function ProjectCard({ project }) {
             <div className="mt-5 flex gap-3">
                 <Link
                     href={`/projects/${project.id}`}
-                    className="rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                    className={styles.button.secondary}
                 >
                     View
                 </Link>
 
                 <Link
                     href={`/projects/${project.id}/edit`}
-                    className={styles.button.primary}                
+                    className={styles.button.primary}
                 >
                     Edit
                 </Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { styles } from "@/lib/styles";
 
 export default function DeleteProjectButton({
   projectId,
@@ -34,7 +35,7 @@ export default function DeleteProjectButton({
   return (
     <button
       onClick={handleDelete}
-      className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition"
+      className={styles.button.redBtn}
     >
       Delete
     </button>

@@ -9,7 +9,7 @@ export const styles = {
         title: "text-2xl font-bold mb-8",
         nav: "space-y-2",
         link: "flex px-3 py-2 gap-3 rounded-lg transition font-medium hover:bg-emerald-500",
-        activeLink: "bg-emerald-500 shadow-sm text-slate-700",
+        activeLink: "bg-emerald-500 shadow-sm text-black",
     },
 
     header: {
@@ -20,7 +20,12 @@ export const styles = {
 
     button: {
         primary:
-            "flex gap-2 bg-emerald-600 text-white px-2 py-2 rounded-lg hover:bg-emerald-500 transition",
+            "flex gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-500 transition",
+        secondary:
+            "rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-700 hover:bg-slate-100",
+        redBtn: 
+            "bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition",
+
     },
 
     card: {
@@ -36,6 +41,7 @@ export const styles = {
         stats: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8",
         main: "grid grid-cols-1 lg:grid-cols-3 gap-6",
         projects: "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6",
+        detailsTwoCol: "mb-8 grid grid-cols-1 gap-6 md:grid-cols-2"
     },
 
     text: {
@@ -66,5 +72,18 @@ export const styles = {
             medium: "bg-amber-100 text-amber-700",
             low: "bg-blue-100 text-blue-700",
         },
+    },
+
+    progress: {
+        track: "h-2 w-full rounded-full bg-slate-200",
+        fill: "h-2 rounded-full bg-emerald-500",
+    },
+
+    panel: {
+        box: "rounded-xl border border-slate-200 p-5",
+    },
+
+    meta: {
+        label: "text-sm text-slate-500",
     },
 };
