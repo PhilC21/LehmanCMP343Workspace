@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import BackButton from "@/components/BackButton";
 import { styles } from "@/lib/styles";
 import ProjectDetailsHeader from "@/components/ProjectDetailsHeader";
 import ProjectDetailsBody from "@/components/ProjectDetailsBody";
@@ -24,13 +23,7 @@ export default async function ProjectDetailsPage({ params }) {
     return (
         <main className={styles.layout.page}>
             <section className={styles.layout.section}>
-                <Link
-                    href="/projects"
-                    className="inline-flex items-center px-4 py-2 gap-2 mb-4 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100"
-                >
-                    <ArrowLeftIcon className="w-4" />
-                    Back to Projects
-                </Link>
+                <BackButton />
 
                 <ProjectDetailsHeader project={project} />
                 <ProjectDetailsBody project={project} />

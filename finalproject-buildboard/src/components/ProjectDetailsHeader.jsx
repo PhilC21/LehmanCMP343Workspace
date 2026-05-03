@@ -6,7 +6,7 @@ export default function ProjectDetailsHeader({ project }) {
     return (
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
-                <h1 className={styles.header.title}>{project.title}</h1>
+                <h1 className={`${styles.header.title} mt-3`}>{project.title}</h1>
                 <p className={`${styles.header.subtitle} capitalize`}>{project.category}</p>
 
                 <div className="mt-2 flex flex-wrap gap-3">

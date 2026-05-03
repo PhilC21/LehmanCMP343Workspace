@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from "@/components/Header";
 import StatCard from "@/components/StatCard";
 import { styles } from "@/lib/styles";
@@ -31,6 +32,9 @@ export default async function Home() {
     ).length;
 
     const recentProjects = projects.slice(0, 5);
+    const recentActivity = [...projects]
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .slice(0, 5);
 
     return (
         <main className={styles.layout.page}>
@@ -46,12 +50,49 @@ export default async function Home() {
 
             {/* Main content area */}
             <section className={styles.grid.main}>
-                {/* Left: placeholder activity chart */}
+                {/* Left: activity chart */}
                 <div className={styles.layout.section}>
                     <h3 className={styles.text.sectionTitle}>Project Activity</h3>
 
-                    <div className="h-64 flex items-center justify-center text-slate-400">
-                        Chart coming soon
+                    <div className="h-64 items-center text-slate-400">
+                        {recentActivity.length === 0 ? (
+                            <p className="text-slate-600">No project activity yet</p>
+                        ) : (
+                            <ul className="w-full min-w-0 space-y-3">
+                                {recentActivity.map((project) => (
+                                    <li key={project.id}>
+                                        <Link className="block p-3 transition hover:bg-zinc-200 hover:shadow-md" href={`/projects/${project.id}`}>
+                                            <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                                                <div className="flex items-center gap-3 min-w-0">
+                                                    <span className="font-semibold text-slate-800 truncate">
+                                                        {project.title}
+                                                    </span>
+
+                                                    <span
+                                                        className={`${styles.badge.base} ${styles.badge.priority[project.priority] ||
+                                                            "bg-slate-100 text-slate-700"
+                                                            }`}
+                                                    >
+                                                        {project.priority} Priority
+                                                    </span>
+                                                </div>
+
+                                                <span className="text-sm text-slate-600">
+                                                    {project.progress}%
+                                                </span>
+                                            </div>
+
+                                            <div className={styles.progress.track}>
+                                                <div
+                                                    className={styles.progress.fill}
+                                                    style={{ width: `${project.progress}%` }}
+                                                />
+                                            </div>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
 
@@ -62,26 +103,27 @@ export default async function Home() {
                     {recentProjects.length === 0 ? (
                         <p className="text-slate-600">No projects yet</p>
                     ) : (
-                        <ul className="space-y-4">
+                        <ul className="space-y-2">
                             {recentProjects.map((project) => (
-                                <li
-                                    key={project.id}
-                                    className="flex flex-col gap-3 rounded-lg border border-slate-200 p-3 sm:flex-row sm:items-center sm:justify-between transition hover:bg-zinc-200"
-                                >
-                                    <div className="min-w-0">
-                                        <p className="font-semibold text-slate-800">
-                                            {project.title}
-                                        </p>
-                                        <p className="text-sm text-slate-500 capitalize">
-                                            {project.category}
-                                        </p>
-                                    </div>
-
-                                    <span
-                                        className={`${styles.badge.base} ${styles.badge.status[project.status] || "bg-slate-100 text-slate-700"} self-start sm:self-auto`}
+                                <li key={project.id}>
+                                    <Link
+                                        href={`/projects/${project.id}`}
+                                        className="flex flex-col gap-3 rounded-lg border border-slate-200 p-3 sm:flex-row sm:items-center sm:justify-between transition hover:bg-zinc-200 hover:shadow-sm"
                                     >
-                                        {project.status}
-                                    </span>
+                                        <div className="min-w-0">
+                                            <p className="font-semibold text-slate-800">
+                                                {project.title}
+                                            </p>
+                                            <p className="text-sm text-slate-500 capitalize">
+                                                {project.category}
+                                            </p>
+                                        </div>
+                                        <span
+                                            className={`${styles.badge.base} ${styles.badge.status[project.status] || "bg-slate-100 text-slate-700"} self-start sm:self-auto`}
+                                        >
+                                            {project.status}
+                                        </span>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
