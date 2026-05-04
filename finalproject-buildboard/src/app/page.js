@@ -61,7 +61,7 @@ export default async function Home() {
                             <ul className="w-full min-w-0 space-y-3">
                                 {recentActivity.map((project) => (
                                     <li key={project.id}>
-                                        <Link className="block p-3 transition hover:bg-zinc-200 hover:shadow-md" href={`/projects/${project.id}`}>
+                                        <Link className="block p-3 transition hover:bg-zinc-100 hover:shadow-md" href={`/projects/${project.id}`}>
                                             <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                                                 <div className="flex items-center gap-3 min-w-0">
                                                     <span className="font-semibold text-slate-800 truncate">

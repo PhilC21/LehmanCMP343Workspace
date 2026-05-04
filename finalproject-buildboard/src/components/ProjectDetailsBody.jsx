@@ -1,3 +1,4 @@
+import ProjectUpdatesCard from "@/components/ProjectUpdatesCard";
 import { styles } from "@/lib/styles";
 
 export default function ProjectDetailsBody({ project }) {
@@ -44,10 +45,7 @@ export default function ProjectDetailsBody({ project }) {
 
             {/* Bottom row: Updates + To-do */}
             <div className={styles.grid.detailsTwoCol}>
-                <div className={styles.panel.box}>
-                    <p className={styles.meta.label}>Updates:</p>
-                    <p className="mt-2 text-slate-700">Under construction...</p>
-                </div>
+                <ProjectUpdatesCard projectId={project.id} />
 
                 <div className={styles.panel.box}>
                     <p className={styles.meta.label}>To-do:</p>
