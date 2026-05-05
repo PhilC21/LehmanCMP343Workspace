@@ -84,8 +84,8 @@ export default function ProjectUpdatesModal({
 
                     <button
                         type="submit"
-                        disabled={isSubmitting}
-                        className={`${styles.button.primary} disabled:cursor-not-allowed disabled:opacity-60`}
+                        disabled={isSubmitting || !newUpdate.trim()}
+                        className={`${styles.button.primary} disabled:cursor-not-allowed disabled:opacity-50`}
                     >
                         {isSubmitting ? "Adding..." : "Add Update"}
                     </button>

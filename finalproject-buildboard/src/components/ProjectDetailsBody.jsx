@@ -1,4 +1,5 @@
 import ProjectUpdatesCard from "@/components/ProjectUpdatesCard";
+import ProjectTasksCard from "@/components/ProjectTasksCard";
 import { styles } from "@/lib/styles";
 
 export default function ProjectDetailsBody({ project }) {
@@ -47,10 +48,7 @@ export default function ProjectDetailsBody({ project }) {
             <div className={styles.grid.detailsTwoCol}>
                 <ProjectUpdatesCard projectId={project.id} />
 
-                <div className={styles.panel.box}>
-                    <p className={styles.meta.label}>To-do:</p>
-                    <p className="mt-2 text-slate-700">Under construction...</p>
-                </div>
+                <ProjectTasksCard projectId={project.id} />
             </div>
         </>
     );

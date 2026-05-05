@@ -9,7 +9,7 @@ export default function Sidebar() {
     const pathname = usePathname();
 
     const navLinks = [
-        { label: "Dashboard", href: "/", icon: HomeIcon },
+        { label: "Home", href: "/", icon: HomeIcon },
         { label: "Projects", href: "/projects", icon: CubeIcon },
         { label: "Add Project", href: "/projects/new", icon: PlusCircleIcon },
     ];

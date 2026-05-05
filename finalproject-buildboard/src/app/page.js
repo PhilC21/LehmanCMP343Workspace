@@ -21,6 +21,9 @@ export default async function Home() {
 
     // Dashboard stat calculations
     const totalProjects = projects.length;
+    const planned = projects.filter(
+        (project) => project.status === "planned"
+    ).length;
     const inProgress = projects.filter(
         (project) => project.status === "in progress"
     ).length;
@@ -43,6 +46,7 @@ export default async function Home() {
             {/* Top summary stats */}
             <section className={styles.grid.stats}>
                 <StatCard title="Total Projects" value={totalProjects} />
+                <StatCard title="Planned" value={planned} />
                 <StatCard title="In Progress" value={inProgress} />
                 <StatCard title="Completed" value={completed} />
                 <StatCard title="Paused" value={paused} />
@@ -54,7 +58,7 @@ export default async function Home() {
                 <div className={styles.layout.section}>
                     <h3 className={styles.text.sectionTitle}>Project Activity</h3>
 
-                    <div className="h-64 items-center text-slate-400">
+                    <div className="max-h-90 overflow-y-auto pr-1 text-slate-400">
                         {recentActivity.length === 0 ? (
                             <p className="text-slate-600">No project activity yet</p>
                         ) : (
@@ -63,8 +67,8 @@ export default async function Home() {
                                     <li key={project.id}>
                                         <Link className="block p-3 transition hover:bg-zinc-100 hover:shadow-md" href={`/projects/${project.id}`}>
                                             <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                                                <div className="flex items-center gap-3 min-w-0">
-                                                    <span className="font-semibold text-slate-800 truncate">
+                                                <div className="flex flex-wrap items-center gap-2 min-w-0">
+                                                    <span className="font-semibold text-slate-800 break-words">
                                                         {project.title}
                                                     </span>
 
@@ -99,7 +103,7 @@ export default async function Home() {
                 {/* Right: Recent Projects */}
                 <div className={styles.layout.section}>
                     <h3 className={styles.text.sectionTitle}>Recent Projects</h3>
-
+                    
                     {recentProjects.length === 0 ? (
                         <p className="text-slate-600">No projects yet</p>
                     ) : (

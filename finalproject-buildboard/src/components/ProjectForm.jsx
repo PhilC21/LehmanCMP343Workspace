@@ -24,8 +24,6 @@ export default function ProjectForm({
     const router = useRouter();
 
     function handleChange(event) {
-        // console.log(event.target.value)
-
         const { name, value } = event.target;
 
         setFormData((prev) => ({
@@ -36,7 +34,6 @@ export default function ProjectForm({
 
     async function handleSubmit(event) {
         event.preventDefault();
-        // console.log("Form data:", formData);
 
         setIsSubmitting(true);
         setErrorMessage("");

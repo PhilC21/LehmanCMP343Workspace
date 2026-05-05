@@ -1,6 +1,6 @@
 export const styles = {
     layout: {
-        page: "flex-1 p-8 bg-slate-100 min-h-screen",
+        page: "flex-1 p-4 md:p-8 bg-slate-100 min-h-screen",
         section: "bg-white rounded-2xl shadow-sm border border-slate-200 p-6",
     },
 
@@ -38,7 +38,7 @@ export const styles = {
     },
 
     grid: {
-        stats: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8",
+        stats: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-8",
         main: "grid grid-cols-1 lg:grid-cols-3 gap-6",
         projects: "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6",
         detailsTwoCol: "mb-8 grid grid-cols-1 gap-6 md:grid-cols-2"
