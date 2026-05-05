@@ -45,7 +45,7 @@ export const styles = {
     },
 
     text: {
-        sectionTitle: "text-xl font-semibold text-slate-800 mb-4",
+        sectionTitle: "text-xl font-semibold text-slate-800 mb-4 min-w-0 break-words whitespace-normal",
         statTitle: "text-sm text-slate-500",
         statValue: "text-2xl font-semibold text-slate-800 mt-2",
     },

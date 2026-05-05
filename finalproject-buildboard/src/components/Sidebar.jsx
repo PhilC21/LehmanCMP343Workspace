@@ -16,7 +16,7 @@ export default function Sidebar() {
 
     return (
         // left sidebar shown on every page
-        <aside className={styles.sidebar.container}>
+        <aside className={`${styles.sidebar.container} hidden md:block`}>
             <h1 className={styles.sidebar.title}>BuildBoard</h1>
 
             <nav className={styles.sidebar.nav}>

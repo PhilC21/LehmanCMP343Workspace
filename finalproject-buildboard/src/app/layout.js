@@ -1,5 +1,6 @@
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import MobileHeader from "@/components/MobileHeader";
 
 export const metadata = {
   title: "BuildBoard",
@@ -10,10 +11,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* App shell: sidebar on the left, page content on the right */}
-        <div className="flex">
+        <div className="min-h-screen bg-slate-100 md:flex">
           <Sidebar />
-          {children}
+
+          <div className="flex-1">
+            <MobileHeader />
+            {children}
+          </div>
         </div>
       </body>
     </html>
