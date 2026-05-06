@@ -24,9 +24,7 @@ export default function ProjectActivityList({ projects }) {
                                             </span>
 
                                             <span
-                                                className={`${styles.badge.base} ${styles.badge.priority[project.priority] ||
-                                                    "bg-slate-100 text-slate-700"
-                                                    }`}
+                                                className={`${styles.badge.base} ${styles.badge.priority[project.priority]}`}
                                             >
                                                 {project.priority} Priority
                                             </span>

@@ -34,13 +34,13 @@ export const styles = {
         empty:
             "border border-dashed border-slate-300 rounded-lg p-8 text-center text-slate-500",
         project:
-            "bg-white rounded-2xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition",
+            "bg-white rounded-2xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition min-w-0 overflow-hidden",
     },
 
     grid: {
         stats: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-8",
         main: "grid grid-cols-1 lg:grid-cols-3 gap-6",
-        projects: "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6",
+        projects: "grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6",
         detailsTwoCol: "mb-8 grid grid-cols-1 gap-6 md:grid-cols-2"
     },
 
@@ -60,7 +60,7 @@ export const styles = {
 
     badge: {
         base:
-            "rounded-full px-3 py-1 text-xs font-medium capitalize",
+            "rounded-full px-3 py-1 text-xs font-medium w-fit max-w-full capitalize",
         status: {
             planned: "bg-blue-100 text-blue-700",
             "in progress": "bg-amber-100 text-amber-700",

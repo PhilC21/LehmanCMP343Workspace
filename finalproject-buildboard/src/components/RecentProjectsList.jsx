@@ -28,9 +28,7 @@ export default function RecentProjectsList({ projects }) {
                                     </div>
 
                                     <span
-                                        className={`${styles.badge.base} ${styles.badge.status[project.status] ||
-                                            "bg-slate-100 text-slate-700"
-                                            } self-start sm:self-auto`}
+                                        className={`${styles.badge.base} ${styles.badge.status[project.status]}`}
                                     >
                                         {project.status}
                                     </span>

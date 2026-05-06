@@ -10,11 +10,14 @@ export default function NewProjectPage() {
     return (
         <main className={styles.layout.page}>
             <section className={styles.layout.section}>
-                <h1 className={styles.header.title}>Add Project</h1>
+                <div className="mb-4">
+                    <h1 className={styles.header.title}>Add Project</h1>
+                    <p className={styles.header.subtitle}>
+                        Start a new project.
+                    </p>
+                </div>
 
-                <ProjectForm
-                    onSuccess={() => router.push("/projects")}
-                />
+                <ProjectForm onSuccess={() => router.push("/projects")} />
             </section>
         </main>
     );

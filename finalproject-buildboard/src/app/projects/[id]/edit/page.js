@@ -37,7 +37,7 @@ export default function EditProjectPage() {
     return (
         <main className={styles.layout.page}>
             <section className={styles.layout.section}>
-                <div className="mb-6">
+                <div className="mb-4">
                     <h1 className={styles.header.title}>Edit Project</h1>
                     <p className={styles.header.subtitle}>
                         Update project details and progress.
