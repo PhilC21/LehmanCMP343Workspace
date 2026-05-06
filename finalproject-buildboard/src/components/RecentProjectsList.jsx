@@ -15,10 +15,10 @@ export default function RecentProjectsList({ projects }) {
                             <li key={project.id}>
                                 <Link
                                     href={`/projects/${project.id}`}
-                                    className="flex min-w-0 flex-col gap-3 overflow-hidden rounded-lg border border-slate-200 p-3 transition hover:bg-zinc-200 hover:shadow-sm sm:flex-row sm:items-center sm:justify-between"
+                                    className="flex flex-col min-w-0 gap-3 overflow-hidden rounded-lg border border-slate-200 p-3 transition hover:bg-zinc-200 hover:shadow-sm sm:flex-row sm:items-center sm:justify-between"
                                 >
                                     <div className="min-w-0">
-                                        <span className="break-words font-semibold text-slate-800 whitespace-normal">
+                                        <span className={styles.text.itemTitle}>
                                             {project.title}
                                         </span>
 

@@ -12,7 +12,7 @@ export default function ProjectsGrid({ projects }) {
 
     return (
         <div className="overflow-x-auto">
-            <div className={`${styles.grid.projects} min-w-[360px]`}>
+            <div className={`${styles.grid.projects} min-w-[240px]`}>
                 {projects.map((project) => (
                     <ProjectCard key={project.id} project={project} />
                 ))}

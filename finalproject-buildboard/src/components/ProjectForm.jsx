@@ -174,7 +174,7 @@ export default function ProjectForm({
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`${styles.button.primary} disabled:cursor-not-allowed disabled:opacity-60`}
+                    className={`${styles.button.primary} ${styles.button.primaryDisabled}`}
                 >
                     {isSubmitting
                         ? mode === "edit"

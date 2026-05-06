@@ -7,7 +7,7 @@ export default function ProjectDetailsBody({ project }) {
         <>
             <div className="mb-8">
                 <h2 className={styles.text.sectionTitle}>Description:</h2>
-                <p className="text-slate-700">
+                <p className="text-slate-600">
                     {project.description || "No description provided."}
                 </p>
             </div>
@@ -15,7 +15,7 @@ export default function ProjectDetailsBody({ project }) {
             {/* Top row: Progress + Created/Updated */}
             <div className={styles.grid.detailsTwoCol}>
                 <div className={styles.panel.box}>
-                    <p className={styles.meta.label}>Progress:</p>
+                    <p className={styles.meta.label}>Progress</p>
 
                     <p className="mt-2 text-2xl font-semibold text-slate-800">
                         {project.progress}%
@@ -30,13 +30,13 @@ export default function ProjectDetailsBody({ project }) {
                 </div>
 
                 <div className={styles.panel.box}>
-                    <p className={styles.meta.label}>Created:</p>
+                    <p className={styles.meta.label}>Created</p>
                     <p className="mt-2 text-slate-800">
                         {new Date(project.created_at).toLocaleString()}
                     </p>
 
                     <div className="mt-5">
-                        <p className={styles.meta.label}>Last Updated:</p>
+                        <p className={styles.meta.label}>Last Updated</p>
                         <p className="mt-2 text-slate-800">
                             {new Date(project.updated_at).toLocaleString()}
                         </p>

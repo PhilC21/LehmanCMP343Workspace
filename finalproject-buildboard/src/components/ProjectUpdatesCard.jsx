@@ -39,12 +39,12 @@ export default function ProjectUpdatesCard({ projectId }) {
         <>
             <div
                 onClick={() => setIsModalOpen(true)}
-                className={`${styles.panel.box} w-full text-left transition cursor-pointer hover:bg-slate-50 hover:shadow-sm`}
+                className={`${styles.panel.box} ${styles.panel.clickable}`}
             >
-                <p className={styles.meta.label}>Updates:</p>
+                <p className={styles.meta.label}>Updates</p>
 
                 {isLoading ? (
-                    <p className="mt-2 text-slate-700">Loading updates...</p>
+                    <p className="mt-2 text-slate-600">Loading updates...</p>
                 ) : errorMessage ? (
                     <p className="mt-2 text-red-600">{errorMessage}</p>
                 ) : recentUpdates.length === 0 ? (

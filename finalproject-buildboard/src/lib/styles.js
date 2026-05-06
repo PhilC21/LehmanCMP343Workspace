@@ -5,7 +5,7 @@ export const styles = {
     },
 
     sidebar: {
-        container: "w-64 min-h-screen bg-emerald-600 text-white p-6",
+        container: "fixed top-0 left-0 h-screen w-64 bg-emerald-600 text-white p-6",
         title: "text-2xl font-bold mb-8",
         nav: "space-y-2",
         link: "flex px-3 py-2 gap-3 rounded-lg transition font-medium hover:bg-emerald-500",
@@ -23,8 +23,8 @@ export const styles = {
             "flex gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-500 transition",
         secondary:
             "flex gap-2 rounded-lg border border-slate-300 px-3 py-2 text-slate-700 hover:bg-slate-100 transition",
-        redBtn: 
-            "bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition",
+        redBtn: "bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition",
+        primaryDisabled: "disabled:cursor-not-allowed disabled:opacity-50",
 
     },
 
@@ -48,6 +48,7 @@ export const styles = {
         sectionTitle: "text-xl font-semibold text-slate-800 mb-4 min-w-0 break-words whitespace-normal",
         statTitle: "text-sm text-slate-500",
         statValue: "text-2xl font-semibold text-slate-800 mt-2",
+        itemTitle: "break-words whitespace-normal font-semibold text-slate-800",
     },
 
     form: {
@@ -81,9 +82,19 @@ export const styles = {
 
     panel: {
         box: "rounded-xl border border-slate-200 p-5",
+        clickable: "w-full text-left transition cursor-pointer hover:bg-slate-50 hover:shadow-sm",
     },
 
     meta: {
         label: "text-sm text-slate-500",
+    },
+
+    scroll: {
+        list: "max-h-90 overflow-y-auto pr-1",
+    },
+
+    modal: {
+        overlay: "fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4",
+        panel: "w-full max-w-2xl rounded-2xl bg-white p-6 shadow-xl"
     },
 };

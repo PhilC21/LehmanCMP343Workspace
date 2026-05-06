@@ -109,7 +109,7 @@ export default function ProjectTasksCard({ projectId }) {
 
     return (
         <div className={styles.panel.box}>
-            <p className={styles.meta.label}>Tasks To-do:</p>
+            <p className={styles.meta.label}>Tasks</p>
 
             {errorMessage && (
                 <div className={`${styles.form.error} mt-3`}>{errorMessage}</div>
@@ -128,7 +128,7 @@ export default function ProjectTasksCard({ projectId }) {
                 <button
                     type="submit"
                     disabled={isSubmitting || !newTask.trim()}
-                    className={`${styles.button.primary} disabled:cursor-not-allowed disabled:opacity-50`}
+                    className={`${styles.button.primary} ${styles.button.primaryDisabled}`}
                 >
                     {isSubmitting ? "Adding..." : "Add"}
                 </button>
@@ -136,9 +136,9 @@ export default function ProjectTasksCard({ projectId }) {
 
             <div className="mt-5 max-h-64 overflow-y-auto pr-1">
                 {isLoading ? (
-                    <p className="text-slate-700">Loading tasks...</p>
+                    <p className="text-slate-600">Loading tasks...</p>
                 ) : tasks.length === 0 ? (
-                    <p className="text-slate-700">No tasks yet.</p>
+                    <p className="text-slate-600">No tasks yet.</p>
                 ) : (
                     <ul className="space-y-2">
                         {tasks.map((task) => (

@@ -48,11 +48,11 @@ export default function ProjectUpdatesModal({
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+            className={styles.modal.overlay}
             onClick={onClose}
         >
             <div
-                className="w-full max-w-2xl rounded-2xl bg-white p-6 shadow-xl"
+                className={styles.modal.panel}
                 onClick={(event) => event.stopPropagation()}
             >
                 <div className="mb-5 flex items-center justify-between">
@@ -85,7 +85,7 @@ export default function ProjectUpdatesModal({
                     <button
                         type="submit"
                         disabled={isSubmitting || !newUpdate.trim()}
-                        className={`${styles.button.primary} disabled:cursor-not-allowed disabled:opacity-50`}
+                        className={`${styles.button.primary} ${styles.button.primaryDisabled}`}
                     >
                         {isSubmitting ? "Adding..." : "Add Update"}
                     </button>

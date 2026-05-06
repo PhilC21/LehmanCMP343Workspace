@@ -6,7 +6,7 @@ export default function ProjectActivityList({ projects }) {
         <div className={styles.layout.section}>
             <h3 className={styles.text.sectionTitle}>Project Activity</h3>
 
-            <div className="max-h-90 overflow-y-auto pr-1">
+            <div className={styles.scroll.list}>
                 {projects.length === 0 ? (
                     <p className="text-slate-600">No project activity yet</p>
                 ) : (
@@ -19,7 +19,7 @@ export default function ProjectActivityList({ projects }) {
                                 >
                                     <div className="mb-2 flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                                         <div className="flex min-w-0 flex-wrap items-center gap-2">
-                                            <span className="break-words font-semibold text-slate-800 whitespace-normal">
+                                            <span className={styles.text.itemTitle}>
                                                 {project.title}
                                             </span>
 

@@ -11,17 +11,13 @@ export default function ProjectDetailsHeader({ project }) {
 
                 <div className="mt-2 flex flex-wrap gap-3">
                     <span
-                        className={`${styles.badge.base} ${styles.badge.status[project.status] ||
-                            "bg-slate-100 text-slate-700"
-                            }`}
+                        className={`${styles.badge.base} ${styles.badge.status[project.status]}`}
                     >
                         {project.status}
                     </span>
 
                     <span
-                        className={`${styles.badge.base} ${styles.badge.priority[project.priority] ||
-                            "bg-slate-100 text-slate-700"
-                            }`}
+                        className={`${styles.badge.base} ${styles.badge.priority[project.priority]}`}
                     >
                         Priority: {project.priority}
                     </span>
