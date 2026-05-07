@@ -26,7 +26,7 @@ export default function ProjectDetailsHeader({ project }) {
 
             <div className="flex gap-3">
                 <Link
-                    href={`/projects/${project.id}/edit`}
+                    href={`/projects/${project.id}/edit?returnTo=${encodeURIComponent(`/projects/${project.id}`)}`}
                     className={styles.button.primary}
                 >
                     Edit

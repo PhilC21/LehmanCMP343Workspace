@@ -9,11 +9,11 @@ export default function BackButton() {
 
     return (
         <button
-            onClick={() => router.back()}
+            onClick={() => router.push("/projects")}
             className={styles.button.secondary}
         >
             <ArrowLeftIcon className="w-4" />
-            Go Back
+            Back to Projects
         </button>
     );
 }

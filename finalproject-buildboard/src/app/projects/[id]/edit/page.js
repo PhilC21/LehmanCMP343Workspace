@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import ProjectForm from "@/components/ProjectForm";
 import { styles } from "@/lib/styles";
 
@@ -12,6 +12,9 @@ export default function EditProjectPage() {
     const [project, setProject] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+
+    const searchParams = useSearchParams();
+    const returnTo = searchParams.get("returnTo");
 
     useEffect(() => {
         async function fetchProject() {
@@ -53,7 +56,7 @@ export default function EditProjectPage() {
                         mode="edit"
                         projectId={id}
                         initialData={project}
-                        onSuccess={() => router.push("/projects")}
+                        onSuccess={() => router.push(returnTo || "/projects")}
                     />
                 )}
             </section>

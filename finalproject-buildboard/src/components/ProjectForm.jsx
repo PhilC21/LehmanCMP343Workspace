@@ -178,10 +178,10 @@ export default function ProjectForm({
                 >
                     {isSubmitting
                         ? mode === "edit"
-                            ? "Updating..."
+                            ? "Saving edits..."
                             : "Saving..."
                         : mode === "edit"
-                            ? "Update Project"
+                            ? "Save Edits"
                             : "Save Project"}
                 </button>
 
